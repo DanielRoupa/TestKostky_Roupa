@@ -21,6 +21,7 @@ namespace Kostky_Roupa
     /// </summary>
     public partial class MainWindow : Window
     {
+        private kostky kostka = new kostka(6);
         private hra Hra;
         private DispatcherTimer timer;
         public MainWindow()
@@ -28,23 +29,34 @@ namespace Kostky_Roupa
             InitializeComponent();
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        private void vykreslitkostku(int x, int y, int vzdalenost, int hodnota)
         {
-            Hra = new hra();
-            timer = new DispatcherTimer();
-            timer.Interval = TimeSpan.FromMilliseconds(30);
-            timer.Tick += Timer_Tick;
-            timer.Start();
-        }
-        private void Timer_Tick(object? sender, EventArgs e)
-        {
-            platno.Children.Clear();
-            Hra.Draw(platno);
-        }
-
-        private void btnhod_Click(object sender, RoutedEventArgs e)
-        {
+            Rectangle obryskostky = new Rectangle
+            {
+                Width = vzdalenost,
+                Height = vzdalenost,
+                Fill = Brushes.DeepSkyBlue,
+                StrokeThickness = 2
+            };
 
         }
+        //private void Window_Loaded(object sender, RoutedEventArgs e)
+        //{
+          //  Hra = new hra();
+          //  timer = new DispatcherTimer();
+          //  timer.Interval = TimeSpan.FromMilliseconds(30);
+          //  timer.Tick += Timer_Tick;
+           // timer.Start();
+      //  }
+       // private void Timer_Tick(object? sender, EventArgs e)
+        //{
+            //platno.Children.Clear();
+            //Hra.Draw(platno);
+        //}
+
+       // private void btnhod_Click(object sender, RoutedEventArgs e)
+        //{
+
+        //}
     }
 }

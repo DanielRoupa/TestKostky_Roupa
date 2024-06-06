@@ -40,7 +40,7 @@ namespace Kostky_Roupa
             {
                 Width = vzdalenost,
                 Height = vzdalenost,
-                Fill = Brushes.DeepSkyBlue,
+                Fill = Brushes.White,
                 StrokeThickness = 2
             };
             Canvas.SetTop(obryskostky, y);
@@ -83,9 +83,9 @@ namespace Kostky_Roupa
         {
             platno.Children.Clear();
             int vzdalenost = 100;
-            for(int i = 0; i < kostky; i++)
+            for (int i = 0; i < kostka.Length; i++)
             {
-                vykreslitkostku(i * (vzdalenost + 10), 10, vzdalenost, kostky[i].Hodnota);
+                vykreslitkostku(i * (vzdalenost + 10), 10, vzdalenost, kostka[i].hodnota);
             }
         }
 

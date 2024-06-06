@@ -22,8 +22,6 @@ namespace Kostky_Roupa
     public partial class MainWindow : Window
     {
         private kostky[] kostka = new kostky[6];
-        private hra Hra;
-        private DispatcherTimer timer;
 
         public MainWindow()
         {
@@ -45,6 +43,9 @@ namespace Kostky_Roupa
                 Fill = Brushes.DeepSkyBlue,
                 StrokeThickness = 2
             };
+            Canvas.SetTop(obryskostky, y);
+            Canvas.SetLeft(obryskostky, x);
+            platno.Children.Add(obryskostky);
             
 
         }

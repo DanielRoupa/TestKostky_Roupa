@@ -78,23 +78,28 @@ namespace Kostky_Roupa
                 platno.Children.Add(cisla[i]);
             }
         }
+
         private void vykreslitkostky()
         {
             platno.Children.Clear();
             int vzdalenost = 100;
-            for(int i = 0; i < 20; i++)
+            for(int i = 0; i < kostky; i++)
             {
-                vykreslitkostku(i * (vzdalenost + 10), 10, vzdalenost, kostky[i]);
+                vykreslitkostku(i * (vzdalenost + 10), 10, vzdalenost, kostky[i].Hodnota);
             }
         }
+
         private async Task animacehodu()
         {
             for (int i = 0; i < 20; i++)
             {
-                foreach(var kostky in kostka)
+                foreach (var kostky in kostka)
                 {
-                    
+                    kostky.Hod();
                 }
+                vykreslitkostky();
+                await Task.Delay(100);
+
             }
         }
         private async void btnhod_Click(object sender, RoutedEventArgs e)

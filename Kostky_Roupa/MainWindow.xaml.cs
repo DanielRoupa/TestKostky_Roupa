@@ -21,12 +21,19 @@ namespace Kostky_Roupa
     /// </summary>
     public partial class MainWindow : Window
     {
-        private kostky kostka = new kostka(6);
+        private kostky[] kostka = new kostky[6];
         private hra Hra;
         private DispatcherTimer timer;
+
         public MainWindow()
         {
+            for(int i = 0; i < kostka.Length; i++)
+            {
+                kostka[i] = new kostky();
+            }
+            vykreslitkostky();
             InitializeComponent();
+            
         }
 
         private void vykreslitkostku(int x, int y, int vzdalenost, int hodnota)
@@ -38,25 +45,32 @@ namespace Kostky_Roupa
                 Fill = Brushes.DeepSkyBlue,
                 StrokeThickness = 2
             };
+            
 
         }
-        //private void Window_Loaded(object sender, RoutedEventArgs e)
-        //{
-          //  Hra = new hra();
-          //  timer = new DispatcherTimer();
-          //  timer.Interval = TimeSpan.FromMilliseconds(30);
-          //  timer.Tick += Timer_Tick;
-           // timer.Start();
-      //  }
-       // private void Timer_Tick(object? sender, EventArgs e)
-        //{
-            //platno.Children.Clear();
-            //Hra.Draw(platno);
-        //}
-
-       // private void btnhod_Click(object sender, RoutedEventArgs e)
-        //{
-
-        //}
+        private void vykreslitkostky()
+        {
+            platno.Children.Clear();
+            int vzdalenost = 100;
+            for(int i = 0; i < 20; i++)
+            {
+                vykreslitkostku(i * (vzdalenost + 10), 10, vzdalenost, kostky[i]);
+            }
+        }
+        private async Task animacehodu()
+        {
+            for (int i = 0; i < 20; i++)
+            {
+                foreach(var kostky in kostka)
+                {
+                    
+                }
+            }
+        }
+        private async void btnhod_Click(object sender, RoutedEventArgs e)
+        {
+            await animacehodu();
+            vykreslitkostky();
+        }
     }
 }
